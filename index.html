@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Axelrod Experiment</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Axelrod Experiment ( <a href="http://en.wikipedia.org/wiki/Prisoner%27s_dilemma">Wikipedia</a> )</h1>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group range-group">
+                        <label for="exampleInputEmail1">Population size (<span class="range-value"></span>)</label>
+                        <input type="range" min="1" max="1000">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group range-group">
+                        <label for="exampleInputEmail1">Rounds in generation (<span class="range-value"></span>)</label>
+                        <input type="range" min="1" max="1000">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group range-group">
+                        <label for="exampleInputEmail1">Number of generations (<span class="range-value"></span>)</label>
+                        <input type="range" min="1" max="1000">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script data-main="js/app" src="js/lib/require.js"></script>
+  </body>
+</html>
