@@ -25,7 +25,7 @@ define(function() {
 
     PayoffMatrix.Presets = {};
 
-    PayoffMatrix.Presets.PrisonersDilemma = new PayoffMatrix('Prisoner\'s dilemma', -1, -2, -3, 0);
+    PayoffMatrix.Presets.PrisonersDilemma = new PayoffMatrix('Prisoner\'s dilemma', 3, 1, 0, 5);
 
     return PayoffMatrix;
 });

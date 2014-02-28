@@ -53,8 +53,7 @@ define(["jquery", "app/agents", "app/payoffMatrix", "app/tournament", "bootstrap
 
                 populationSpec[i] = Number($("#popspec-" + i).val());
             }
-            console.log(tournament);
-
+            
             tournament.initPopulationFromSpec(populationSpec);
             tournament.runGeneration();
             tournament.acquireStatistics();
