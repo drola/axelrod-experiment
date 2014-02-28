@@ -4,7 +4,7 @@ define(function() {
 		this.payoffMatrix = payoffMatrix;
 	};
 
-	var Agent.prototype.addToHistory = function(oppId, myMove, oppMove) {
+	Agent.prototype.addToHistory = function(oppId, myMove, oppMove) {
 
 	};
 
