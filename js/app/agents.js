@@ -24,7 +24,7 @@ define(function() {
 		}
 	};
 
-	Agents.TitForTat.prototype = Object.create(Agent);
+	Agents.TitForTat.prototype = Object.create(Agent.prototype);
 	Agents.TitForTat.prototype.constructor = Agents.TitForTat;
 
 	Agents.TitForTat.prototype.play = function(oppId) {
@@ -45,7 +45,7 @@ define(function() {
 		Agent.call(this, payoffMatrix);
 	};
 
-	Agents.AllC.prototype = Object.create(Agent);
+	Agents.AllC.prototype = new Agent();
 	Agents.AllC.prototype.constructor = Agents.AllC;
 
 	Agents.AllC.prototype.play = function(oppId) {
@@ -62,7 +62,7 @@ define(function() {
 		Agent.call(this, payoffMatrix);
 	};
 
-	Agents.AllD.prototype = Object.create(Agent);
+	Agents.AllD.prototype = Object.create(Agent.prototype);
 	Agents.AllD.prototype.constructor = Agents.AllD;
 
 	Agents.AllD.prototype.play = function(oppId) {
@@ -79,7 +79,7 @@ define(function() {
 		}
 	};
 
-	Agents.TitForTwoTats.prototype = Object.create(Agent);
+	Agents.TitForTwoTats.prototype = Object.create(Agent.prototype);
 	Agents.TitForTwoTats.prototype.constructor = Agents.TitForTwoTats;
 
 	Agents.TitForTwoTats.prototype.play = function(oppId) {
@@ -99,7 +99,7 @@ define(function() {
 		}
 	};
 
-	Agents.PerCD.prototype = Object.create(Agent);
+	Agents.PerCD.prototype = Object.create(Agent.prototype);
 	Agents.PerCD.prototype.constructor = Agents.PerCD;
 
 	Agents.PerCD.prototype.play = function(oppId) {
@@ -118,7 +118,7 @@ define(function() {
 		}
 	};
 
-	Agents.PerCCD.prototype = Object.create(Agent);
+	Agents.PerCCD.prototype = Object.create(Agent.prototype);
 	Agents.PerCCD.prototype.constructor = Agents.PerCCD;
 
 	Agents.PerCCD.prototype.play = function(oppId) {
@@ -140,7 +140,7 @@ define(function() {
 		}
 	};
 
-	Agents.PerDDC.prototype = Object.create(Agent);
+	Agents.PerDDC.prototype = Object.create(Agent.prototype);
 	Agents.PerDDC.prototype.constructor = Agents.PerDDC;
 
 	Agents.PerDDC.prototype.play = function(oppId) {
@@ -162,7 +162,7 @@ define(function() {
 		}
 	};
 
-	Agents.Spiteful.prototype = Object.create(Agent);
+	Agents.Spiteful.prototype = Object.create(Agent.prototype);
 	Agents.Spiteful.prototype.constructor = Agents.Spiteful;
 
 	Agents.Spiteful.prototype.play = function(oppId) {
@@ -181,7 +181,7 @@ define(function() {
 		}
 	};
 
-	Agents.Joss.prototype = Object.create(Agent);
+	Agents.Joss.prototype = Object.create(Agent.prototype);
 	Agents.Joss.prototype.constructor = Agents.Joss;
 
 	Agents.Joss.prototype.play = function(oppId) {
@@ -200,7 +200,7 @@ define(function() {
 		Agent.call(this, payoffMatrix);
 	};
 
-	Agents.Random.prototype = Object.create(Agent);
+	Agents.Random.prototype = Object.create(Agent.prototype);
 	Agents.Random.prototype.constructor = Agents.Joss;
 
 	Agents.Random.prototype.play = function(oppId) {
@@ -220,7 +220,7 @@ define(function() {
 		}
 	};
 
-	Agents.Tester.prototype = Object.create(Agent);
+	Agents.Tester.prototype = Object.create(Agent.prototype);
 	Agents.Tester.prototype.constructor = Agents.Tester;
 
 	Agents.Tester.prototype.play = function(oppId) {
@@ -254,7 +254,7 @@ define(function() {
 		}
 	};
 
-	Agents.SoftMajo.prototype = Object.create(Agent);
+	Agents.SoftMajo.prototype = Object.create(Agent.prototype);
 	Agents.SoftMajo.prototype.constructor = Agents.SoftMajo;
 
 	Agents.SoftMajo.prototype.play = function(oppId) {
@@ -279,7 +279,7 @@ define(function() {
 		}
 	};
 
-	Agents.HardMajo.prototype = Object.create(Agent);
+	Agents.HardMajo.prototype = Object.create(Agent.prototype);
 	Agents.HardMajo.prototype.constructor = Agents.HardMajo;
 
 	Agents.HardMajo.prototype.play = function(oppId) {
@@ -304,7 +304,7 @@ define(function() {
 		}
 	};
 
-	Agents.Pavlov.prototype = Object.create(Agent);
+	Agents.Pavlov.prototype = Object.create(Agent.prototype);
 	Agents.Pavlov.prototype.constructor = Agents.Pavlov;
 
 	Agents.Pavlov.prototype.play = function(oppId) {
@@ -329,7 +329,7 @@ define(function() {
 		}
 	};
 
-	Agents.Mistrust.prototype = Object.create(Agent);
+	Agents.Mistrust.prototype = Object.create(Agent.prototype);
 	Agents.Mistrust.prototype.constructor = Agents.Mistrust;
 
 	Agents.Mistrust.prototype.play = function(oppId) {
@@ -354,7 +354,7 @@ define(function() {
 		}
 	};
 
-	Agents.Prober.prototype = Object.create(Agent);
+	Agents.Prober.prototype = Object.create(Agent.prototype);
 	Agents.Prober.prototype.constructor = Agents.Prober;
 
 	Agents.Prober.prototype.play = function(oppId) {

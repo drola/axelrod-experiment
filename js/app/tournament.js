@@ -21,8 +21,7 @@ define(['app/agents'], function(Agents) {
         }
 
         var populationSpecRatio = this.populationSize / totalCountFromSpec;
-        console.log(spec);
-
+        
         for (var i in spec) {
             if (!spec.hasOwnProperty(i)) {
                 continue;
@@ -38,11 +37,15 @@ define(['app/agents'], function(Agents) {
             };
 
             this.actualPopulationSize += count;
-            console.log(Agents[i], i);
+        }
 
-            for (var j = 0; j < count; j++) {
-                //TODO: agentCount is the first parameter of new Agent(...)
-                this.population.push(new (Agents[i])(this.payoffMatrix));
+        for (var i in spec) {
+            if (!spec.hasOwnProperty(i)) {
+                continue;
+            }
+
+            for (var j = 0; j < this.agentTypes[i].count; j++) {
+                this.population.push(new (Agents[i])(this.actualPopulationSize, this.payoffMatrix));
             }
         }
     };
@@ -59,7 +62,6 @@ define(['app/agents'], function(Agents) {
                     oppB.addToHistory(i, moveB, moveA);
                     oppA.agentValue += this.payoffMatrix.getPayoff(moveA, moveB);
                     oppB.agentValue += this.payoffMatrix.getPayoff(moveB, moveA);
-                    console.log(i, j, moveA, moveB);
                 }
             }
         }
