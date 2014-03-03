@@ -68,6 +68,8 @@ define(['app/agents'], function(Agents) {
     };
 
     Tournament.prototype.acquireStatistics = function() {
+        var results = {};
+
         for (var i in this.agentTypes) {
             if (!this.agentTypes.hasOwnProperty(i)) {
                 continue;
@@ -78,8 +80,17 @@ define(['app/agents'], function(Agents) {
             for (var j = agentType.startIndex; j <= agentType.endIndex; j++) {
                 agentType.score += this.population[j].agentValue;
             }
-            console.log(i, agentType.score);
+
+            results[i] = agentType.score;
         }
+
+        return results;
+    };
+
+    Tournament.prototype.constructNextGenerationPopulation = function() {
+        var resultsOfPreviousRound = this.acquireStatistics();
+        this.initPopulationFromSpec(resultsOfPreviousRound);
+        return resultsOfPreviousRound;
     };
 
     return Tournament;
