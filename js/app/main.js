@@ -1,4 +1,10 @@
-define(["jquery", "app/agents", "app/payoffMatrix", "app/tournament", "bootstrap", "bootstrap-select"], function($, Agents, PayoffMatrix, Tournament) {
+define(["jquery", "app/agents", "app/payoffMatrix", "app/tournament", "app/graph", "bootstrap", "bootstrap-select"], function($, Agents, PayoffMatrix, Tournament, Graph) {
+    var graph;
+
+    var initGraph = function() {
+        graph = new Graph("#graph1Container", 100);
+    };
+
     var initInputRangeRefreshing = function() {
         var update = function() {
             $(this).closest('.range-group').find('.range-value').text($(this).val());
@@ -13,7 +19,7 @@ define(["jquery", "app/agents", "app/payoffMatrix", "app/tournament", "bootstrap
                 continue;
             }
 
-            var html = "<tr><td>" + i + "</td><td><input id=\"popspec-" + i + "\" type=\"range\" min=\"0\" max=\"100\"></td><td></td></tr>";
+            var html = "<tr><td>" + i + "</td><td><input id=\"popspec-" + i + "\" type=\"range\" min=\"0\" value=\"0\" max=\"100\"></td><td></td></tr>";
             $(".agents-table tbody").append(html);
         }
     };
@@ -42,21 +48,28 @@ define(["jquery", "app/agents", "app/payoffMatrix", "app/tournament", "bootstrap
     };
 
     var initTournament = function() {
-        $("#go-button").click(function() {
-            var payoffMatrix = new PayoffMatrix("noname", Number($("#payoff-bothC").val()), Number($("#payoff-bothD").val()), Number($("#payoff-sucker").val()), Number($("#payoff-temptation").val()));
-            var tournament = new Tournament(payoffMatrix, Number($("#input-populationSize").val()), Number($("#input-roundsPerGeneration").val()), Number($("#input-generationCount").val()));
-            var populationSpec = {};
-            for (var i in Agents) {
-                if (!Agents.hasOwnProperty(i)) {
-                    continue;
-                }
+        var payoffMatrix, tournament, populationSpec;
+        var first = true;
 
-                populationSpec[i] = Number($("#popspec-" + i).val());
+        $("#go-button").click(function() {
+            if (first) {
+                payoffMatrix = new PayoffMatrix("noname", Number($("#payoff-bothC").val()), Number($("#payoff-bothD").val()), Number($("#payoff-sucker").val()), Number($("#payoff-temptation").val()));
+                tournament = new Tournament(payoffMatrix, Number($("#input-populationSize").val()), Number($("#input-roundsPerGeneration").val()), Number($("#input-generationCount").val()));
+                populationSpec = {};
+                for (var i in Agents) {
+                    if (!Agents.hasOwnProperty(i)) {
+                        continue;
+                    }
+
+                    populationSpec[i] = Number($("#popspec-" + i).val());
+                }
+                tournament.initPopulationFromSpec(populationSpec);
+                first = false;
             }
-            
-            tournament.initPopulationFromSpec(populationSpec);
+
+            graph.addGenerationData(tournament.getPopulationPercentages());
             tournament.runGeneration();
-            tournament.acquireStatistics();
+            tournament.constructNextGenerationPopulation();
         });
     };
 
@@ -65,5 +78,6 @@ define(["jquery", "app/agents", "app/payoffMatrix", "app/tournament", "bootstrap
         initAgentsTable();
         initPayoffPresets();
         initTournament();
+        initGraph();
     });
 });

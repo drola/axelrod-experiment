@@ -93,5 +93,18 @@ define(['app/agents'], function(Agents) {
         return resultsOfPreviousRound;
     };
 
+    Tournament.prototype.getPopulationPercentages = function() {
+        var stats = {};
+        for (var i in this.agentTypes) {
+            if(!this.agentTypes.hasOwnProperty(i)) {
+                continue;
+            }
+
+            stats[i] = this.agentTypes[i].count / this.actualPopulationSize;
+        }
+
+        return stats;
+    };
+
     return Tournament;
 });
