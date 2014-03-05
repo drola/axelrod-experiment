@@ -29,8 +29,10 @@ define(['d3'], function(d3){
             .y(this.y);
 
         this.svg = d3.select(targetSelector).append("svg")
-            .attr("width", width + margin.left + margin.right)
+            .attr("width", "100%")
             .attr("height", height + margin.top + margin.bottom)
+            .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
+            .attr("perserveAspectRatio", "xMinYMid")
            .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
